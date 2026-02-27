@@ -1,0 +1,12 @@
+services:
+  cyber-newsletter:
+    build: .
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./output:/app/output
+      - ./logs:/app/logs
+      - ./.env:/app/.env
+    environment:
+      - PYTHONUNBUFFERED=1
+    restart: unless-stopped
